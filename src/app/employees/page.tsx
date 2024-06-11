@@ -1,13 +1,10 @@
 'use client';
 
 import { useEmployees } from '../hooks/useEmployees';
-import {
-  UserPlusIcon,
-  PencilIcon,
-  TrashIcon,
-} from '@heroicons/react/24/outline';
+import { UserPlusIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
+import EmployeesCTA from '../components/employees-cta';
 
 export default function Page() {
   const employees = useEmployees();
@@ -39,20 +36,7 @@ export default function Page() {
               />
               <span>{employee.name}</span>
             </div>
-            <div className="flex gap-2 items-center">
-              <Link
-                href={`employees/update/${employee.id}`}
-                className="rounded-xl bg-zinc-100 transition ease-in-out hover:bg-zinc-200 p-2 items-center"
-              >
-                <PencilIcon className="w-6 h-6 text-zinc-900" />
-              </Link>
-              <Link
-                href={`employees/delete/${employee.id}`}
-                className="rounded-xl bg-zinc-100 transition ease-in-out hover:bg-zinc-200 p-2 items-center"
-              >
-                <TrashIcon className="w-6 h-6 text-zinc-900" />
-              </Link>
-            </div>
+            <EmployeesCTA id={employee.id} />
           </li>
         ))}
       </ul>

@@ -17,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex p-6 gap-8">
-          <nav className="flex flex-col flex-none gap-4">
+        <main className="flex">
+          <nav className="flex flex-col border shadow-xl flex-none rounded-tr-xl bg-zinc-100 h-screen gap-4 p-6">
             <div className="flex flex-col gap-4 bg-zinc-900 text-zinc-100 rounded-xl p-6">
               <BuildingOfficeIcon className="size-12" />
               <h1 className={`${lusitana.className} text-2xl`}>
@@ -27,7 +27,9 @@ export default function RootLayout({
             </div>
             <Sidenav />
           </nav>
-          <div className="flex flex-col gap-4 flex-grow">{children}</div>
+          <div className="flex flex-col gap-4 flex-grow p-6">
+            {children}
+          </div>
         </main>
       </body>
     </html>
