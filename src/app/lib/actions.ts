@@ -73,3 +73,19 @@ export async function deleteEmployee(id: number) {
     console.error(error);
   }
 }
+
+export async function deleteRooms(id: number) {
+  // try {
+  //   const response = await fetch(`http://localhost:3001/rooms/${id}`, {
+  //     method: 'DELETE',
+  //   });
+
+  //   if (!response.ok) {
+  //     throw new Error('Failed to delete room');
+  //   }
+
+  //   window.location.reload();
+  // } catch (error) {
+  //   console.error(error);
+  // }
+}

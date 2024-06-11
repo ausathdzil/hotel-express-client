@@ -12,10 +12,10 @@ export default function Page() {
   return (
     <>
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold">Employees</h1>
+        <h1 className="text-3xl font-bold">Employees</h1>
         <Link
           href="employees/create"
-          className="rounded-xl bg-zinc-100 transition ease-in-out hover:bg-zinc-200 p-2 items-center"
+          className="rounded-xl bg-zinc-100 transition ease-in-out hover:bg-zinc-200 p-2 items-center shadow-nd"
         >
           <UserPlusIcon className="w-6 h-6 text-zinc-900" />
         </Link>
@@ -24,7 +24,7 @@ export default function Page() {
         {employees?.map((employee, index) => (
           <li
             key={employee.id}
-            className="flex justify-between items-center gap-4 rounded-xl bg-zinc-100 p-4"
+            className="flex justify-between items-center gap-4 rounded-xl bg-zinc-50 p-4 shadow-md"
           >
             <div className="flex gap-4 items-center">
               <Image
