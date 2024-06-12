@@ -2,6 +2,8 @@
 
 import { useRevenue } from './hooks/useRevenue';
 import { useReservations } from './hooks/useReservations';
+import { useCustomers } from './hooks/useCustomers';
+import { useRooms } from './hooks/useRooms';
 import {
   Card,
   CardHeader,
@@ -25,7 +27,15 @@ import { ClockIcon } from '@heroicons/react/24/outline';
 
 export default function Home() {
   const revenue = useRevenue();
+  const customers = useCustomers();
+  const rooms = useRooms();
   const reservations = useReservations();
+
+  const availableRooms = rooms?.filter((room) => room.status === 'Available');
+  const occupiedRooms = rooms?.filter((room) => room.status === 'Occupied');
+  const pendingReservations = reservations?.filter(
+    (reservations) => reservations.status === 'pending'
+  );
 
   return (
     <div className="flex flex-col gap-4">
@@ -44,12 +54,12 @@ export default function Home() {
         </Card>
         <Card>
           <CardHeader className="gap-2">
-            <CardDescription>Customers Renting</CardDescription>
+            <CardDescription>Total Customers This Month</CardDescription>
             <CardTitle
               className={`${lusitana.className} text-4xl flex gap-4 justify-center items-center`}
             >
               <UserGroupIcon className="w-6 h-6" />
-              <span>4</span>
+              {customers.length}
             </CardTitle>
           </CardHeader>
         </Card>
@@ -60,7 +70,18 @@ export default function Home() {
               className={`${lusitana.className} text-4xl flex gap-4 justify-center items-center`}
             >
               <HomeIcon className="w-6 h-6" />
-              <span>1</span>
+              <span>{availableRooms.length}</span>
+            </CardTitle>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader className="gap-2">
+            <CardDescription>Rooms Occupied</CardDescription>
+            <CardTitle
+              className={`${lusitana.className} text-4xl flex gap-4 justify-center items-center`}
+            >
+              <HomeIcon className="w-6 h-6" />
+              <span>{occupiedRooms.length}</span>
             </CardTitle>
           </CardHeader>
         </Card>
@@ -71,7 +92,7 @@ export default function Home() {
               className={`${lusitana.className} text-4xl flex gap-4 justify-center items-center`}
             >
               <ClockIcon className="w-6 h-6" />
-              <span>2</span>
+              <span>{pendingReservations.length}</span>
             </CardTitle>
           </CardHeader>
         </Card>
@@ -99,7 +120,15 @@ export default function Home() {
                   <TableCell>
                     {new Date(reservation.check_in).toISOString().split('T')[0]}
                   </TableCell>
-                  <TableCell></TableCell>
+                  <TableCell>
+                    {reservation.days_remaining === 0 ? (
+                      <Badge className="bg-zinc-900 hover:bg-zinc-700">
+                        Checked Out
+                      </Badge>
+                    ) : (
+                      reservation.days_remaining
+                    )}
+                  </TableCell>
                   <TableCell>
                     {reservation.status === 'paid' ? (
                       <Badge className="bg-green-500 hover:bg-green-400">
@@ -120,3 +149,4 @@ export default function Home() {
     </div>
   );
 }
+
