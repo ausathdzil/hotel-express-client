@@ -1,4 +1,4 @@
-front-end web app for hotel express.
+client side web app for hotel express.
 
 **tech stack**
 
