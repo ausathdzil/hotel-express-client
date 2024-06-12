@@ -79,11 +79,23 @@ export async function deleteRooms(id: number) {
   //   const response = await fetch(`http://localhost:3001/rooms/${id}`, {
   //     method: 'DELETE',
   //   });
-
   //   if (!response.ok) {
   //     throw new Error('Failed to delete room');
   //   }
+  //   window.location.reload();
+  // } catch (error) {
+  //   console.error(error);
+  // }
+}
 
+export async function deleteCustomers(id: number) {
+  // try {
+  //   const response = await fetch(`http://localhost:3001/customers/${id}`, {
+  //     method: 'DELETE',
+  //   });
+  //   if (!response.ok) {
+  //     throw new Error('Failed to delete customer');
+  //   }
   //   window.location.reload();
   // } catch (error) {
   //   console.error(error);

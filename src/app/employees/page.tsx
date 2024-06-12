@@ -1,6 +1,7 @@
 'use client';
 
 import { useEmployees } from '../hooks/useEmployees';
+import { lusitana } from '../lib/fonts';
 import { UserPlusIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +13,9 @@ export default function Page() {
   return (
     <>
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Employees</h1>
+        <h1 className={`text-3xl font-bold ${lusitana.className}`}>
+          Employees
+        </h1>
         <Link
           href="employees/create"
           className="rounded-xl bg-zinc-100 transition ease-in-out hover:bg-zinc-200 p-2 items-center shadow-nd"

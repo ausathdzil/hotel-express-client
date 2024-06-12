@@ -27,7 +27,6 @@ export type Rooms = {
 
 export type Payments = {
   id: number;
-  method: string;
   date: string;
   amount: string;
 };
@@ -40,4 +39,8 @@ export type Reservations = {
   check_in: string;
   check_out: string;
   status: string;
+};
+
+export type Revenue = {
+  revenue: string;
 };
