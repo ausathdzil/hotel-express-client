@@ -8,13 +8,13 @@ import {
   TableBody,
   TableCell,
 } from './ui/table';
-import { useReservations } from '../hooks/useReservations';
+import { useRecentReservations } from '../hooks/useRecentReservations';
 import { useCustomers } from '../hooks/useCustomers';
 import { useRooms } from '../hooks/useRooms';
 import { Badge } from './ui/badge';
 
 export default function RecentReservations() {
-  const reservations = useReservations();
+  const reservations = useRecentReservations();
   const customers = useCustomers();
   const rooms = useRooms();
 

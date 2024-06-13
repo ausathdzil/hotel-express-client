@@ -72,7 +72,9 @@ export default function Home() {
                   )}
                 </TableCell>
                 <TableCell className="flex justify-center">
-                  <ReservationsCTA id={reservation.id} />
+                  {reservation.status === 'pending' && (
+                    <ReservationsCTA id={reservation.id} />
+                  )}
                 </TableCell>
               </TableRow>
             ))}
