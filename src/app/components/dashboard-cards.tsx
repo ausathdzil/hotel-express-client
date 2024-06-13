@@ -3,7 +3,7 @@
 import { lusitana } from '../lib/fonts';
 import { useRevenue } from '../hooks/useRevenue';
 import { useCustomers } from '../hooks/useCustomers';
-import { useRooms } from '../hooks/useRooms';
+import { useRooms } from '../hooks/useRoom';
 import { useReservations } from '../hooks/useReservations';
 import {
   Card,

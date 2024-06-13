@@ -4,8 +4,6 @@ import { deleteCustomers } from '../lib/actions';
 import { useRouter } from 'next/navigation';
 
 export default function CustomersCTA(customers: { id: number }) {
-  const router = useRouter();
-
   return (
     <div className="flex gap-2 items-center">
       <Link

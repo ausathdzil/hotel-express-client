@@ -31,15 +31,15 @@ export default function Home() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {customers?.map((customers) => (
-              <TableRow key={customers.id}>
-                <TableCell>{customers.id}</TableCell>
-                <TableCell>{customers.name}</TableCell>
-                <TableCell>{customers.email}</TableCell>
-                <TableCell>{customers.phone_number}</TableCell>
-                <TableCell>{customers.address}</TableCell>
+            {customers?.map((customer) => (
+              <TableRow key={customer.id}>
+                <TableCell>{customer.id}</TableCell>
+                <TableCell>{customer.name}</TableCell>
+                <TableCell>{customer.email}</TableCell>
+                <TableCell>{customer.phone}</TableCell>
+                <TableCell>{customer.address}</TableCell>
                 <TableCell className="flex justify-center">
-                  <CustomersCTA id={customers.id} />
+                  <CustomersCTA id={customer.id} />
                 </TableCell>
               </TableRow>
             ))}

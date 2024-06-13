@@ -2,9 +2,9 @@ export type Employee = {
   id: number;
   name: string;
   email: string;
-  phone_number: string;
+  phone: string;
   address: string;
-  job_title: string;
+  position: string;
   image_url?: string;
 };
 
@@ -12,7 +12,7 @@ export type Customers = {
   id: number;
   name: string;
   email: string;
-  phone_number: string;
+  phone: string;
   address: string;
 };
 

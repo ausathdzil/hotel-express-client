@@ -10,7 +10,7 @@ import {
 } from './ui/table';
 import { useReservations } from '../hooks/useReservations';
 import { useCustomers } from '../hooks/useCustomers';
-import { useRooms } from '../hooks/useRooms';
+import { useRooms } from '../hooks/useRoom';
 import { Badge } from './ui/badge';
 
 export default function RecentReservations() {

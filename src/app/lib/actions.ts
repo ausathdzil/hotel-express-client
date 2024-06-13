@@ -74,18 +74,75 @@ export async function deleteEmployee(id: number) {
   }
 }
 
+export async function createRoom(
+  event: FormEvent<HTMLFormElement>,
+  router: any
+) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  const formJSON = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch('http://localhost:3001/rooms', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formJSON),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to create room');
+    }
+
+    router.push('/rooms');
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function updateRoom(
+  event: FormEvent<HTMLFormElement>,
+  id: number,
+  router: any
+) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  const formJSON = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch(`http://localhost:3001/rooms/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formJSON),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update room');
+    }
+
+    router.push('/rooms');
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function deleteRooms(id: number) {
-  // try {
-  //   const response = await fetch(`http://localhost:3001/rooms/${id}`, {
-  //     method: 'DELETE',
-  //   });
-  //   if (!response.ok) {
-  //     throw new Error('Failed to delete room');
-  //   }
-  //   window.location.reload();
-  // } catch (error) {
-  //   console.error(error);
-  // }
+  try {
+    const response = await fetch(`http://localhost:3001/rooms/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error('Failed to delete room');
+    }
+    window.location.reload();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function deleteCustomers(id: number) {
