@@ -3,7 +3,6 @@
 import { lusitana } from '../lib/fonts';
 import { useRevenue } from '../hooks/useRevenue';
 import { useCustomers } from '../hooks/useCustomers';
-import { useRooms } from '../hooks/useRoom';
 import { useReservations } from '../hooks/useReservations';
 import {
   Card,
@@ -17,6 +16,7 @@ import {
   HomeIcon,
   ClockIcon,
 } from '@heroicons/react/24/outline';
+import { useRooms } from '../hooks/useRooms';
 
 export default function DashboardCards() {
   const revenue = useRevenue();

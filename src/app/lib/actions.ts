@@ -74,6 +74,79 @@ export async function deleteEmployee(id: number) {
   }
 }
 
+export async function createCustomer(
+  event: FormEvent<HTMLFormElement>,
+  router: any
+) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  const formJSON = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch('http://localhost:3001/customers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formJSON),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to create customer');
+    }
+
+    router.push('/customers');
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function updateCustomer(
+  event: FormEvent<HTMLFormElement>,
+  id: number,
+  router: any
+) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  const formJSON = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch(`http://localhost:3001/customers/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formJSON),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update customer');
+    }
+
+    router.push('/customers');
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function deleteCustomer(id: number) {
+  try {
+    const response = await fetch(`http://localhost:3001/customers/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to delete customer');
+    }
+
+    window.location.reload();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function createRoom(
   event: FormEvent<HTMLFormElement>,
   router: any
@@ -143,18 +216,4 @@ export async function deleteRooms(id: number) {
   } catch (error) {
     console.error(error);
   }
-}
-
-export async function deleteCustomers(id: number) {
-  // try {
-  //   const response = await fetch(`http://localhost:3001/customers/${id}`, {
-  //     method: 'DELETE',
-  //   });
-  //   if (!response.ok) {
-  //     throw new Error('Failed to delete customer');
-  //   }
-  //   window.location.reload();
-  // } catch (error) {
-  //   console.error(error);
-  // }
 }

@@ -5,7 +5,7 @@ export function useRoom(id: number): Rooms | undefined {
   const [room, setRoom] = useState<Rooms>();
 
   useEffect(() => {
-    async function fetchRooms(roomId: number) {
+    async function fetchRoom(roomId: number) {
       try {
         const response = await fetch(`http://localhost:3001/rooms/${roomId}`, {
           cache: 'no-store',
@@ -17,7 +17,7 @@ export function useRoom(id: number): Rooms | undefined {
       }
     }
 
-    fetchRooms(id);
+    fetchRoom(id);
   }, [id]);
 
   return room;

@@ -2,6 +2,9 @@
 
 import { useCustomers } from '../hooks/useCustomers';
 import { lusitana } from '../lib/fonts';
+import Link from 'next/link';
+import { Button } from '../components/ui/button';
+import { UserPlusIcon } from '@heroicons/react/24/outline';
 import {
   Table,
   TableHeader,
@@ -17,7 +20,17 @@ export default function Home() {
 
   return (
     <>
-      <h1 className={`text-3xl font-bold ${lusitana.className}`}>Customers</h1>
+      <div className="flex justify-between">
+        <h1 className={`text-3xl font-bold ${lusitana.className}`}>Customers</h1>
+        <Link href="customers/create">
+          <Button
+            className="bg-zinc-50 p-2 rounded-xl shadow-md transition ease-in-out hover:bg-zinc-100 items-center"
+            variant="outline"
+          >
+            <UserPlusIcon className="w-6 h-6 text-zinc-900" />
+          </Button>
+        </Link>
+      </div>
       <div className="flex flex-col items-center rounded-xl bg-zinc-50 p-4 shadow-md gap-4">
         <Table>
           <TableHeader>
