@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { deleteEmployee, deleteRooms } from '../lib/actions';
+import { deleteRooms } from '../lib/actions';
 
 export default function RoomsCTA(room: { id: number }) {
   return (

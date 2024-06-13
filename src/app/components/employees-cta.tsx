@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { deleteEmployee } from '../lib/actions';
-import { useRouter } from 'next/navigation';
 
 export default function EmployeesCTA(employee: { id: number }) {
   return (

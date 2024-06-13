@@ -2,6 +2,7 @@
 
 import {
   CircleStackIcon,
+  BookOpenIcon,
   UserGroupIcon,
   HomeIcon,
   BriefcaseIcon,
@@ -12,6 +13,7 @@ import Link from 'next/link';
 
 const links = [
   { href: '/', label: 'Dashboard', icon: CircleStackIcon },
+  { href: '/reservations', label: 'Reservations', icon: BookOpenIcon },
   { href: '/customers', label: 'Customers', icon: UserGroupIcon },
   { href: '/rooms', label: 'Rooms', icon: HomeIcon },
   { href: '/employees', label: 'Employees', icon: BriefcaseIcon },
