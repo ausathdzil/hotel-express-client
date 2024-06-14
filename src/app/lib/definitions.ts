@@ -1,4 +1,4 @@
-export type Employee = {
+export type Employees = {
   id: number;
   name: string;
   email: string;
