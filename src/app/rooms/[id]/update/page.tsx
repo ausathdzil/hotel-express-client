@@ -21,7 +21,7 @@ export default function Form({ params }: { params: { id: number } }) {
       >
         <div className="flex flex-col gap-4 bg-zinc-100 p-8 rounded-xl">
           <div className="flex flex-col gap-1">
-            <label htmlFor="name">Number</label>
+            <label htmlFor="number">Number</label>
             <input
               type="text"
               name="number"
